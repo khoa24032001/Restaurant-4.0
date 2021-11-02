@@ -50,6 +50,7 @@ class PickFood extends Component {
         //  this.setState({
         //      carts: newCart
         //  })
+        console.log(this.state)
     }
 
     handleSubmit() {
@@ -84,12 +85,13 @@ class PickFood extends Component {
             return (
                 <Container className="padding10">
                     <Card className='cartItemContent'>
-                        {/* <img className="drug-img" width="91.98px" height="90px" src="/assets/images/drug_example.png" alt = "Xem hồ sơ bệnh án"></img> */}
+                         {/* <img width="91.98px" height="90px" src={FaSearch} alt = "Xem hồ sơ bệnh án"/> */}
                         
                         
                         <div className='img'></div> 
                         <Row className="incartItem">  Gà rán (M) 
-                        <div className='qty'> <Button>-</Button> 3 <Button>+</Button>  </div></Row>
+                        {/* TODO action button to update cart */}
+                        <div className='qty'> <Button onClick={this.addFood}>-</Button> 3 <Button>+</Button>  </div></Row>
                         <Row>
                         <Input className="note" name="note" type="text"></Input><Button className='del'>Del</Button>
                         </Row>
@@ -145,7 +147,7 @@ class FooterCart extends Component {
         const { total } = this.props;
         return (
             <Container>
-                Tổng: {total}
+                Tổng: 100.000
                 <Button txt="Thanh toán" path="pay" />
             </Container>
         );

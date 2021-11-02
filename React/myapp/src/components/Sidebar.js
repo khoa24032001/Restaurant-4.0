@@ -56,7 +56,6 @@ const Sidebar = () => {
           </NavIcon>
           <h1 font-color='#000'>Chọn món</h1>
           <Input type="text"  className="align-right"/>
-          {/* innerRef={(input) => this.search_item = input */}
         </Nav>
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
