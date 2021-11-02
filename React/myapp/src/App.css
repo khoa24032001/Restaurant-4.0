@@ -49,7 +49,7 @@ font-family: 'Barlow';
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 15px;
-  height: fit-content
+  height: fit-content;
 }
 
 
@@ -77,21 +77,22 @@ font-family: 'Barlow';
   border-color: #000d1f;
   /* border-block: ; */
   border-radius: 15;
+  padding-top: 5%;
   
 }
 .card-body{
+  left: 20%;
   border-radius: 15;
   border-color: #000d1f;
   position: absolute;
-left: 40%;
-right: 3.33%;
-top: 6.25%;
-bottom: 31.25%;
 }
 h1{
   background-color: #000d1f;
 }
-
+.cart-text{
+  left:5%;
+  bottom:0%;
+}
 .MenuCard{
   background-color: #E5E5E5;
   justify-content: center;

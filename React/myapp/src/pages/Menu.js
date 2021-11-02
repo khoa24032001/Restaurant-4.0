@@ -5,7 +5,7 @@ import { Card, CardBody, CardTitle, CardSubtitle, CardText } from 'reactstrap';
 import { Form, FormGroup, Input, Button } from 'reactstrap';
 import { Modal, ModalBody } from 'reactstrap';
 import { FaShoppingCart, FaSearch } from 'react-icons/fa';
-import axios from 'axios';
+
 import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn } from 'mdb-react-ui-kit';
 import { FoodOrdData } from './FoodData';
 class PickFood extends Component {
@@ -66,27 +66,26 @@ class PickFood extends Component {
               return(
               <Card>
               {/* <img className="drug-img" src="./logo.svg" alt = "Xem hồ sơ bệnh án"></img> */}
-                <Container width="91.98px" height="90px" />
               <CardBody >
                   
               <CardTitle tag="h5" >Gà rán (M)</CardTitle>
               <CardSubtitle tag="h6" > Gà texas</CardSubtitle>
-              <CardText >
+                 <CardText >
                   <Button>Xem chi tiết </Button>
                   <Button onClick= {this.state.cart.push(food)}> Thêm vào giỏ hàng </Button>
-                  
-              </CardText>      
+              </CardText>
               </CardBody>
+                 
               </Card>)
           });
           const cart_food_list = this.state.cart.map(food => {
             //const price = food.price * 1000;
             return(
-            <Card className="CARD">
+            <Card >
             {/* <img className="drug-img" width="91.98px" height="90px" src="/assets/images/drug_example.png" alt = "Xem hồ sơ bệnh án"></img> */}
             <CardBody>
             <CardTitle tag="h5" >Gà rán (M)</CardTitle>
-            <CardSubtitle tag="h6" > Gà texas</CardSubtitle>
+            <CardSubtitle tag="h6" > Kích thước S</CardSubtitle>
             <CardText >
                 <CardImg src='react-icons/fa/FaTable'/>
                 <img 
@@ -108,9 +107,6 @@ class PickFood extends Component {
                     <Button className="type-button"> Thức ăn</Button>
                     <Button className="type-button"> Combo</Button>
                 </Row>
-
-
-
 
                 <Row>
                         {food_list}
