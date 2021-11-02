@@ -48,7 +48,6 @@ font-family: 'Barlow';
   top:20%;
   left: 20%;
   right:0px;
-  background-color: #458FF6;
   display: inline-block;
 }
 .qty{
@@ -134,14 +133,11 @@ h1{
   background-color: #000d1f;
 }
 h5{
-  width:100%;
-  height:100%;
-  top:10%;
+  height: fit-content;
   font-family: Barlow;
 font-style: normal;
 font-weight: bold;
 font-size: 18px;
-line-height: 140%;
 color: #3B5162;
 
 }
@@ -149,6 +145,7 @@ color: #3B5162;
 
 h6{
   font-family: Roboto;
+  height: fit-content;
 font-style: normal;
 font-weight: bold;
 font-size: 18px;

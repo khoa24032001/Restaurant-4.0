@@ -67,14 +67,12 @@ class PickFood extends Component {
 
     render() {
         const food_list = this.state.food_display.map((food) => {
-            //const price = food.price * 1000;
             return (
                 <div className="containCard">
 
                 <Card className="foodCard">
-                    {/* <img className="drug-img" src="./logo.svg" alt = "Xem hồ sơ bệnh án"></img> */}
-                        {/* <div tag="h5">Gà rán (M)</div> */}
-                        <CardSubtitle tag="h6"> Giá tiền 100.000</CardSubtitle>
+                        <h5> Gà rán (M)</h5>
+                        <h6> Giá tiền 100.000</h6>
                         <Button className="infobtn">Xem chi tiết </Button>
                             <Button className="addbtn">Thêm vào giỏ hàng</Button>
                         
@@ -95,23 +93,6 @@ class PickFood extends Component {
                         <Row>
                         <Input className="note" name="note" type="text"></Input><Button className='del'>Del</Button>
                         </Row>
-                        {/* <CardBody> */}
-                            {/* <CardTitle tag="h5">Gà rán (M)</CardTitle> */}
-                            {/* <CardSubtitle tag="h6"> Kích thước S</CardSubtitle> */}
-                            {/* <CardText> */}
-                                {/* <CardImg src="react-icons/fa/FaTable" /> */}
-                                
-                                {/* <Input name="note" type="text" defaultValue="Add Note"></Input> */}
-                                {/* <img
-                                    onClick={this.state.cart.push(food)}
-                                    width="35px"
-                                    height="35px"
-                                    src="./logo192.png"
-                                    alt="Chọn mua"
-                                /> */}
-
-                            {/* </CardText> */}
-                        {/* </CardBody> */}
                     </Card>
                 </Container>
             );
@@ -171,21 +152,3 @@ class FooterCart extends Component {
     }
 }
 
-// <Col lg="2" md="3" sm="4">
-
-class FoodCard extends Component {
-    render() {
-        return (
-            <MDBCard className="CARD" style={{ maxWidth: "22rem" }}>
-                <MDBCardBody>
-                    <MDBCardTitle>Gà chiên giòn</MDBCardTitle>
-                    <MDBCardText>Ăn tại chỗ</MDBCardText>
-                    <Row>
-                        {" "}
-                        <MDBBtn>+</MDBBtn> 3 <MDBBtn>-</MDBBtn>
-                    </Row>
-                </MDBCardBody>
-            </MDBCard>
-        );
-    }
-}
