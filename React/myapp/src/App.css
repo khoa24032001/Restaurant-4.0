@@ -24,6 +24,47 @@ font-family: 'Barlow';
   /* margin-left: 520px; */
 }
 
+.padding10
+{
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: aqua;
+  
+}
+.img{
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  display: inline-block;
+}
+.padding10 .card{
+  border-radius: 15px;
+  position: relative;
+}
+.incartItem{
+  position: absolute;
+  top:20%;
+  left: 20%;
+  right:0px;
+  background-color: #458FF6;
+  display: inline-block;
+}
+.qty{
+  display: inline-block;
+  position: absolute;
+  right: 0%;
+}
+.note{
+  width: 80%;
+  border-radius: 5px;
+  height: 30px;
+}
+.del{
+  position: absolute;
+  right: 0px;
+  width: 30px;
+  height: 30px;
+}
 
 .food-item, .modal-food-item{
   margin-top: 15px;
@@ -108,12 +149,12 @@ h1{
 }
 
 .cart{
-  width: 250px;
+  width: 300px;
   justify-content: center;
   position: fixed;
   transition: 350ms;
   z-index: 11;
-  right: 0%;
+  right: 10%;
 }
 
 .align-right{
