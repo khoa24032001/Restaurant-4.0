@@ -69,20 +69,16 @@ class PickFood extends Component {
         const food_list = this.state.food_display.map((food) => {
             //const price = food.price * 1000;
             return (
-                <Card>
+                <div className="containCard">
+
+                <Card className="foodCard">
                     {/* <img className="drug-img" src="./logo.svg" alt = "Xem hồ sơ bệnh án"></img> */}
-                    <CardBody>
-                        <CardTitle tag="h5">Gà rán (M)</CardTitle>
-                        <CardSubtitle tag="h6"> Gà texas</CardSubtitle>
-                        <CardText>
-                            <Button>Xem chi tiết </Button>
-                            <Button onClick={this.state.cart.push(food)}>
-                                {" "}
-                                Thêm vào giỏ hàng{" "}
-                            </Button>
-                        </CardText>
-                    </CardBody>
-                </Card>
+                        {/* <div tag="h5">Gà rán (M)</div> */}
+                        <CardSubtitle tag="h6"> Giá tiền 100.000</CardSubtitle>
+                        <Button className="infobtn">Xem chi tiết </Button>
+                            <Button className="addbtn">Thêm vào giỏ hàng</Button>
+                        
+                </Card></div>
             );
         });
         const cart_food_list = this.state.cart.map((food) => {
@@ -155,11 +151,11 @@ class CustomerInfo extends Component {
         const { customerName, Role } = this.props;
 
         return (
-            <h5>
-                {" "}
-                Người dùng: {customerName}
-                Vai trò: {Role}
-            </h5>
+            <h6>
+                <Row> Người dùng: {customerName}
+               </Row>
+               <Row> Vai trò: {Role}</Row>
+            </h6>
         );
     }
 }

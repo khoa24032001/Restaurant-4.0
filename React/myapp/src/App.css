@@ -28,7 +28,8 @@ font-family: 'Barlow';
 {
   padding: 10px;
   box-sizing: border-box;
-  background-color: aqua;
+
+  height:fit-content;
   
 }
 .img{
@@ -39,6 +40,7 @@ font-family: 'Barlow';
 }
 .padding10 .card{
   border-radius: 15px;
+  background-color: #E5E5E5;
   position: relative;
 }
 .incartItem{
@@ -112,33 +114,69 @@ font-family: 'Barlow';
   border-color:#7C7C7C;
 }
 .card{
-  width: 300px;
+  width: 250px;
   height: 102px;
   background-color: #ffffff;
   border-color: #000d1f;
   /* border-block: ; */
-  border-radius: 15;
+  border-radius: 15px;
   padding-top: 5%;
   
 }
 .card-body{
   left: 20%;
-  border-radius: 15;
+  right:0%;
+  top:10%;
+  border-radius: 15px;
   border-color: #000d1f;
-  position: absolute;
 }
 h1{
   background-color: #000d1f;
+}
+h5{
+  width:100%;
+  height:100%;
+  top:10%;
+  font-family: Barlow;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 140%;
+color: #3B5162;
+
+}
+
+
+h6{
+  font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+/* line-height: 140%; */
+/* or 25px */
+
+/* display: flex; */
+/* align-items: center; */
+
+/* Button/Selected */
+
+color: #2685F8;
 }
 .cart-text{
   left:5%;
   bottom:0%;
 }
+.containCard{
+  width: fit-content;
+  height:fit-content;
+  padding:3%;
+  /* background-color: #3B5162; */
+}
 .MenuCard{
   background-color: #E5E5E5;
   justify-content: center;
-  position: fixed;
-  transition: 350ms;
+  position: absolute;
+  height:100%;
   z-index: 0;
   left: 0;
   right:0;
@@ -150,11 +188,18 @@ h1{
 
 .cart{
   width: 300px;
-  justify-content: center;
-  position: fixed;
+  /* height:100%; */
+  height: 100%;
+  right:0%;
+  position: absolute;
   transition: 350ms;
   z-index: 11;
-  right: 10%;
+  right: 0%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color:#ffffff;
+  border-radius: 15px;
+  height:100%;
 }
 
 .align-right{
@@ -165,4 +210,42 @@ h1{
 
 h1{
   color: #F6F8FB;
+}
+.cart-body{
+  
+  width:80%;
+  height:100%;
+}
+ .cart-title{
+  padding-left: 5%;
+} 
+h5.cart-title {
+text-align: right;
+}
+.foodCard{
+  padding-left: 5%;
+  top:0%;
+}
+
+.infobtn{
+  
+  position: relative;
+align-self:flex-start;
+/* Button / SoftRed */
+left:0%;
+bottom:0%;
+background: #EB5757;
+border-radius: 10px;
+z-index: 3;
+}
+.addbtn{
+    margin: auto;
+  position:relative;
+  right: 0%;
+  background: #2685F8;
+  border-radius: 10px;
+}
+.card-subtitle{
+  height:fit-content;
+
 }
