@@ -118,7 +118,7 @@ class PickFood extends Component {
             </Col>
             <Col className="cart">
             <HeaderCart />
-            <FoodCard/>
+            {cart_food_list}
             <FooterCart />
             </Col>
             </Row>
