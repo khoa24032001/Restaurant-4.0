@@ -23,7 +23,8 @@ class PickFood extends Component {
         });
     }
     rmvItem(food){
-        const newCart=this.state.cart.filter(item=>!item==food)
+        const newCart=this.state.cart.filter(
+            (item)=>item!=food)
         this.setState({
             cart: newCart,
             totalCost: this.total()
@@ -114,7 +115,8 @@ class PickFood extends Component {
                         {/* TODO action button to update cart */}
                         <div className='qty'> <Button onClick={(e)=>{this.adjustItem(foodItem,false)}}>-</Button> {foodItem.num} <Button onClick={(e)=>{this.adjustItem(foodItem,true)}}>+</Button>  </div></Row>
                         <Row>
-                        <Input className="note" name="note" type="text"></Input><Button className='del'onClick={this.addFood}>Del</Button>
+                        <Input className="note" name="note" type="text"></Input>
+                        <Button className='del' onClick={(e)=>{this.rmvItem(foodItem)}}>Del</Button>
                         </Row>
                     </Card>
                 </Container>
