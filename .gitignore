@@ -116,3 +116,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+React/myapp/package-lock.json
+React/myapp/yarn.lock

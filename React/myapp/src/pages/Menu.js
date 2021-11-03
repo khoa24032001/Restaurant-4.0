@@ -2,16 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Col, CardImg } from "reactstrap";
 import { Card, CardBody, CardTitle, CardSubtitle, CardText } from "reactstrap";
 import { Form, FormGroup, Input, Button } from "reactstrap";
-import { Modal, ModalBody } from "reactstrap";
-import { FaShoppingCart, FaSearch } from "react-icons/fa";
 
-import {
-    MDBCard,
-    MDBCardBody,
-    MDBCardTitle,
-    MDBCardText,
-    MDBBtn,
-} from "mdb-react-ui-kit";
 import { FoodOrdData } from "./FoodData";
 class PickFood extends Component {
     constructor(props) {
@@ -22,34 +13,52 @@ class PickFood extends Component {
         this.adjustItem = this.adjustItem.bind(this);
         //     this.addDrug = this.addDrug.bind(this);
     }
-
-    addItem() {
+    notItem(food,item) { 
+        return item.food.food_name==food.food_name; 
+      } 
+    addItem(item) {
         this.setState({
-            nums_item_open: this.state.nums_item_open + 1,
+            cart: this.state.cart.push({food: item, num:1}),
+            totalCost: this.total()
         });
     }
-
-    adjustItem(idx, more) {
-        const newCart = this.state.cart;
-        if (more) {
-            newCart[idx].num++;
-        } else {
-            newCart[idx].num++;
-        }
+    rmvItem(food){
+        const newCart=this.state.cart.filter(item=>!item==food)
         this.setState({
             cart: newCart,
+            totalCost: this.total()
+        }
+        );
+    }
+    adjustItem(foodfix, more) {
+        const A=foodfix;
+        if (more)
+            A.num++;
+        else A.num--;
+        const newcart=this.state.cart.map(
+            (food)=>{
+                if (food==foodfix) return A;
+                else return food;
+            }
+             )
+        this.setState({
+            cart: newcart,
+            totalCost:this.total()
         });
     }
 
     addFood(food) {
-        const newCart = this.state.cart;
-        //const item = this.state.currentFood;
-
-        newCart.push(food);
-        this.state.cart = newCart;
-        //  this.setState({
-        //      carts: newCart
-        //  })
+        const exist=this.state.cart.filter((item)=>item.food.food_name==food.food_name)
+        if (exist.length>0){
+            this.adjustItem(exist[0],true);
+        }
+        else{
+            this.setState({
+             carts: this.state.cart.push({food:food,num:1}),
+            totalCost:this.total()
+         })
+        }
+         
         console.log(this.state)
     }
 
@@ -59,12 +68,24 @@ class PickFood extends Component {
         });
         this.setState({ food_display: search });
     }
-
-    //  componentDidMount() {
-    //              this.setState({ drugs: drugs.drugs,
-    //                      drugs_display: drugs.drugs,
-    //                  currentFood: {}});
-    //    };
+    search(type){
+        this.setState(
+            {food_display:this.state.food_list.filter(food=>food.type==type)}
+        )
+    }
+    showAll(){
+        this.setState({
+            food_display:this.state.food_list
+        })
+    }
+    total(){return this.state.cart.reduce((total,item)=>total+item.food.price*item.num,0);}
+                
+     componentDidMount() {
+                this.setState(FoodOrdData);
+                this.setState({food_display:this.state.food_list,
+                    totalCost:this.total()});
+                console.log(this.state)
+       };
 
     render() {
         const food_list = this.state.food_display.map((food) => {
@@ -72,15 +93,15 @@ class PickFood extends Component {
                 <div className="containCard">
 
                 <Card className="foodCard">
-                        <h5> Gà rán (M)</h5>
-                        <h6> Giá tiền 100.000</h6>
+                        <h5> {food.food_name}</h5>
+                        <h6> Giá tiền : {food.price}</h6>
                         <Button className="infobtn">Xem chi tiết </Button>
-                            <Button className="addbtn">Thêm vào giỏ hàng</Button>
+                            <Button className="addbtn" onClick={(e)=>{this.addFood(food)}}>Thêm vào giỏ hàng</Button>
                         
                 </Card></div>
             );
         });
-        const cart_food_list = this.state.cart.map((food) => {
+        const cart_food_list = this.state.cart.map((foodItem) => {
             //const price = food.price * 1000;
             return (
                 <Container className="padding10">
@@ -89,11 +110,11 @@ class PickFood extends Component {
                         
                         
                         <div className='img'></div> 
-                        <Row className="incartItem">  Gà rán (M) 
+                        <Row className="incartItem">  {foodItem.food.food_name}
                         {/* TODO action button to update cart */}
-                        <div className='qty'> <Button onClick={this.addFood}>-</Button> 3 <Button>+</Button>  </div></Row>
+                        <div className='qty'> <Button onClick={(e)=>{this.adjustItem(foodItem,false)}}>-</Button> {foodItem.num} <Button onClick={(e)=>{this.adjustItem(foodItem,true)}}>+</Button>  </div></Row>
                         <Row>
-                        <Input className="note" name="note" type="text"></Input><Button className='del'>Del</Button>
+                        <Input className="note" name="note" type="text"></Input><Button className='del'onClick={this.addFood}>Del</Button>
                         </Row>
                     </Card>
                 </Container>
@@ -104,10 +125,10 @@ class PickFood extends Component {
             <Row className="screen">
                 <Col className="MenuCard">
                     <Row>
-                        <Button className="type-button"> Tất cả</Button>
-                        <Button className="type-button">Món ăn</Button>
-                        <Button className="type-button"> Thức ăn</Button>
-                        <Button className="type-button"> Combo</Button>
+                        <Button className="type-button" onClick={(e)=>{this.showAll()}}> Tất cả</Button>
+                        <Button className="type-button"onClick={(e)=>{this.search("DoAn")}}>Món ăn</Button>
+                        <Button className="type-button"onClick={(e)=>{this.search("Nuoc")}}> Nước uống</Button>
+                        <Button className="type-button"onClick={(e)=>{this.search("Combo")}}> Combo</Button>
                     </Row>
 
                     <Row>{food_list}</Row>
@@ -115,7 +136,11 @@ class PickFood extends Component {
                 <Col className="cart">
                     <HeaderCart />
                     {cart_food_list}
-                    <FooterCart />
+                    <Container>
+                Tổng: <h1>{this.state.totalCost}</h1>
+                {/* <Button txt="Thanh toán" path="pay" /> */}
+            <Button onClick={(e)=>{console.log("đã thanh toán")}}>Thanh toán </Button>
+            </Container>
                 </Col>
             </Row>
         );
@@ -139,17 +164,6 @@ class CustomerInfo extends Component {
                </Row>
                <Row> Vai trò: {Role}</Row>
             </h6>
-        );
-    }
-}
-class FooterCart extends Component {
-    render() {
-        const { total } = this.props;
-        return (
-            <Container>
-                Tổng: 100.000
-                <Button txt="Thanh toán" path="pay" />
-            </Container>
         );
     }
 }
