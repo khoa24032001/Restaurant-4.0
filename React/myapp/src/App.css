@@ -176,9 +176,11 @@ color: #2685F8;
   bottom:0%;
 }
 .containCard{
-  width: fit-content;
+  width: 30%;
   height:fit-content;
-  padding:3%;
+  padding:1% 2% 1% 1%;
+  margin:0;
+  float:left;
   /* background-color: #3B5162; */
 }
 .MenuCard{
@@ -186,12 +188,10 @@ color: #2685F8;
   justify-content: center;
   position: absolute;
   height:100%;
+  width:60%;
   z-index: 0;
-  left: 0;
-  right:0;
-  top:80;
-  padding-left: 10%;
-  padding-right:30%;
+  left: 15%;
+  padding:0;
   align-items: baseline;
 }
 
@@ -235,7 +235,7 @@ text-align: right;
   padding-left: 5%;
   top:0%;
   border: 2px solid black;
-  width: 400px
+  width: 100%;
 }
 .foodCard .row{
   height: 60px;

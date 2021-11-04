@@ -3,6 +3,14 @@ import React from 'react';
 export const FoodOrdData = {
     food_list:[
         {food_name: "Gà nướng",type:"DoAn", price:100000},
+        {food_name: "Gà nướng",type:"DoAn", price:100000},
+        {food_name: "Gà nướng",type:"DoAn", price:100000},
+        {food_name: "Gà nướng",type:"DoAn", price:100000},
+        {food_name: "Gà nướng",type:"DoAn", price:100000},
+        {food_name: "Gà nướng",type:"DoAn", price:100000},
+        {food_name: "Gà nướng",type:"DoAn", price:100000},
+        {food_name: "Gà nướng",type:"DoAn", price:100000},
+        {food_name: "Gà nướng",type:"DoAn", price:100000},
         {food_name:"Bánh mì",type:"DoAn",price:100000},
         {food_name: "Pepsi", type:"Nuoc",price:100},
         {food_name: "Muahe", type:"Combo",price:100}],

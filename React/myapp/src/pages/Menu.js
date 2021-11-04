@@ -100,9 +100,7 @@ class PickFood extends Component {
                     <Card className="foodCard">
                         <Row>
                             <Col>
-                            <div className='menuFoodImg'>
-                                
-                            </div>
+                            <img className='menuFoodImg' src="https://i.imgur.com/xZYkts5.jpg" />
                             </Col>
                             <Col><div className='menuFoodName'> {food.food_name}</div>
                         <div className='menuFoodPrice'> Giá tiền : {food.price}</div>
@@ -133,6 +131,7 @@ class PickFood extends Component {
                         {/* <img width="91.98px" height="90px" src={FaSearch} alt = "Xem hồ sơ bệnh án"/> */}
 
                         <div className="img"></div>
+                        <a className="singleCost">{foodItem.food.price}</a> 
                         <Row className="incartItem">
                             {" "}
                             {foodItem.food.food_name}
@@ -155,6 +154,7 @@ class PickFood extends Component {
                                     +
                                 </Button>{" "}
                             </div>
+                            <a className="totalMoney">{foodItem.food.price*foodItem.num}</a>
                         </Row>
                         <Row>
                             <Input
@@ -216,11 +216,11 @@ class PickFood extends Component {
                             Combo
                         </Button>
                     </Row>
-
+                    
                     <Row>{food_list}</Row>
                 </Col>
                 <Col className="cart">
-                    <HeaderCart />
+                    {/* <HeaderCart /> */}
                     {cart_food_list}
                     <Container>
                         Tổng: <h1>{this.state.totalCost}</h1>
@@ -240,21 +240,21 @@ class PickFood extends Component {
 }
 
 export default PickFood;
-class HeaderCart extends Component {
-    render() {
-        const { customerName, Role } = this.props;
-        return <CustomerInfo props={this.props} />;
-    }
-}
-class CustomerInfo extends Component {
-    render() {
-        const { customerName, Role } = this.props;
+// class HeaderCart extends Component {
+//     render() {
+//         const { customerName, Role } = this.props;
+//         return <CustomerInfo props={this.props} />;
+//     }
+// }
+// class CustomerInfo extends Component {
+//     render() {
+//         const { customerName, Role } = this.props;
 
-        return (
-            <h6>
-                <Row> Người dùng: {customerName}</Row>
-                <Row> Vai trò: {Role}</Row>
-            </h6>
-        );
-    }
-}
+//         return (
+//             <h6>
+//                 <Row> Người dùng: {customerName}</Row>
+//                 <Row> Vai trò: {Role}</Row>
+//             </h6>
+//         );
+//     }
+// }
