@@ -8,7 +8,7 @@
   font-size: 36;
 } */
 *{
-  
+  font-family:'Times New Roman', Times, serif;
 }
 .type-button {
   background-color: #F6F8FB;
@@ -176,7 +176,7 @@ color: #2685F8;
   bottom:0%;
 }
 .containCard{
-  width: 30%;
+  width: 300px;
   height:fit-content;
   padding:1% 2% 1% 1%;
   margin:0;
@@ -188,11 +188,15 @@ color: #2685F8;
   justify-content: center;
   position: absolute;
   height:100%;
-  width:60%;
+  width:90%;
   z-index: 0;
-  left: 15%;
+  left: 0%;
   padding:0;
   align-items: baseline;
+}
+.MenuCard.active{
+  width:70%;
+  left: 14.5%;
 }
 
 .cart{

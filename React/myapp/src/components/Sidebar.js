@@ -45,8 +45,10 @@ const SidebarWrap = styled.div`
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
 
-  const showSidebar = () => setSidebar(!sidebar);
-
+  const showSidebar = () =>{setSidebar(!sidebar);
+    let x = document.querySelector(".MenuCard")
+    x.classList.toggle('active');
+  }
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
