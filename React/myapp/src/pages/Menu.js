@@ -120,15 +120,16 @@ class PickFood extends Component {
             return (
                 <div className="containCard">
                     <Card className="foodCard">
-                        <Row>
+                        <Row className="foodRow">
                             <Col>
                             <img className='menuFoodImg' src="https://i.imgur.com/xZYkts5.jpg" />
                             </Col>
-                            <Col><div className='menuFoodName'> {food.food_name}</div>
-                        <div className='menuFoodPrice'> Giá tiền : {food.price}</div>
+                            <Col>
+                            <div className='menuFoodName'> {food.food_name}</div>
+                            <div className='menuFoodPrice'> Giá tiền : {food.price}</div>
                             </Col>
                         </Row>
-                        <Row>
+                        <Row className="foodRow2">
                             <Button className="infobtn" onClick={(e)=>{this.setState({currentFood:food}); this.toggleModal()}}>Xem chi tiết </Button>
                         <Button
                             className="addbtn"
@@ -152,7 +153,7 @@ class PickFood extends Component {
                     <Card className="cartItemContent">
                         {/* <img width="91.98px" height="90px" src={FaSearch} alt = "Xem hồ sơ bệnh án"/> */}
 
-                        <img className='menuFoodImg' src="https://i.imgur.com/xZYkts5.jpg" />
+                        <img className='menuFoodImg2' src="https://i.imgur.com/xZYkts5.jpg" />
                         <a className="singleCost">{foodItem.food.price}</a> 
                         <Row className="incartItem">
                             {" "}

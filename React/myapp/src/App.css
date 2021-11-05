@@ -73,9 +73,22 @@ font-family: 'Barlow';
 }
 
 .menuFoodImg{
-  width: 60px;
-  height: 60px;
-  background-color: red;
+  width: 80px;
+  height: 80px;
+  float:left;
+}
+
+.menuFoodImg2{
+  width: 90px;
+  height: 90px;
+  float:left;
+}
+.foodCard .foodRow{
+  height:80px;
+}
+.foodCard .foodRow2{
+  margin-top:5px;
+  height:20px;
 }
 .food-item, .modal-food-item{
   margin-top: 15px;
@@ -188,27 +201,23 @@ color: #2685F8;
   justify-content: center;
   position: absolute;
   height:100%;
-  width:90%;
+  width:80%;
   z-index: 0;
   left: 0%;
   padding:0;
   align-items: baseline;
 }
 .MenuCard.active{
-  width:70%;
+  width:65%;
   left: 14.5%;
 }
 
 .cart{
-  width: 300px;
-  /* height:100%; */
-  /* height: 100%; */
+  width: 20%;
   right:0%;
   position: absolute;
   transition: 350ms;
   z-index: 11;
-  right: 0%;
-  /* padding: 10px; */
   box-sizing: border-box;
   background-color:#ffffff;
   border-radius: 15px;
@@ -241,18 +250,6 @@ text-align: right;
   border: 2px solid black;
   width: 100%;
 }
-.foodCard .row{
-  height: 60px;
-}
-
-.foodCard .row .col{
-  height: 60px;
-  background-color: pink;
-  display: inline-block;
-  align-self: center;
-  /* margin: 0px 10px ; */
-}
-
 .foodCard .row .btn{
   /* background-color: pink; */
   display: inline-block;
