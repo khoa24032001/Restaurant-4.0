@@ -16,6 +16,7 @@
   border-radius: 55px;
   border: 1px solid #458FF6;
   Width :120px;
+  margin: 10px;
 Height :50px;
 Top :145px;
 Left :111px;
@@ -174,13 +175,6 @@ h6{
 font-style: normal;
 font-weight: bold;
 font-size: 18px;
-/* line-height: 140%; */
-/* or 25px */
-
-/* display: flex; */
-/* align-items: center; */
-
-/* Button/Selected */
 
 color: #2685F8;
 }
@@ -191,10 +185,14 @@ color: #2685F8;
 .containCard{
   width: 300px;
   height:fit-content;
-  padding:1% 2% 1% 1%;
+  padding:1%;
   margin:0;
   float:left;
   /* background-color: #3B5162; */
+}
+.menuFoodName{
+  font-size:20px;
+  font-weight:bold;
 }
 .MenuCard{
   background-color: #E5E5E5;
@@ -208,7 +206,7 @@ color: #2685F8;
   align-items: baseline;
 }
 .MenuCard.active{
-  width:65%;
+  width:67%;
   left: 14.5%;
 }
 
@@ -257,9 +255,8 @@ text-align: right;
 
 .infobtn{
   
-  position: relative;
+position: relative;
 align-self:flex-start;
-/* Button / SoftRed */
 left:0%;
 bottom:0%;
 background: #EB5757;
