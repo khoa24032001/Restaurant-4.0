@@ -27,7 +27,7 @@ const NavIcon = styled(Link)`
 
 const SidebarNav = styled.nav`
   background: #15171c;
-  width: 250px;
+  width: 15%;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -45,8 +45,10 @@ const SidebarWrap = styled.div`
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
 
-  const showSidebar = () => setSidebar(!sidebar);
-
+  const showSidebar = () =>{setSidebar(!sidebar);
+    let x = document.querySelector(".MenuCard")
+    x.classList.toggle('active');
+  }
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
