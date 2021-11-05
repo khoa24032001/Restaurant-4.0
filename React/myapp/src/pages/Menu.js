@@ -79,8 +79,7 @@ class PickFood extends Component {
     }
     total() {
         return this.state.cart.reduce(
-            (total, item) => total + item.food.price * item.num,
-            0
+            (total, item) => total + item.food.price * item.num,0
         );
     }
 
@@ -130,7 +129,7 @@ class PickFood extends Component {
                     <Card className="cartItemContent">
                         {/* <img width="91.98px" height="90px" src={FaSearch} alt = "Xem hồ sơ bệnh án"/> */}
 
-                        <div className="img"></div>
+                        <img className='menuFoodImg' src="https://i.imgur.com/xZYkts5.jpg" />
                         <a className="singleCost">{foodItem.food.price}</a> 
                         <Row className="incartItem">
                             {" "}
