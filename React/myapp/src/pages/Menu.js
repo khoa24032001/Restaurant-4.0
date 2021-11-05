@@ -12,7 +12,6 @@ class PickFood extends Component {
         this.state.donePay=false;
         this.togglePay=this.togglePay.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.addItem = this.addItem.bind(this);
         this.adjustItem = this.adjustItem.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.info=this.info.bind(this);
@@ -22,14 +21,8 @@ class PickFood extends Component {
     info(){
         console.log(this.state);
     }
-    addItem(item) {
-        this.setState({
-            cart: this.state.cart.push({ food: item, num: 1 })
-        });
-        this.total();
-    }
     rmvItem(food) {
-        const newCart = this.state.cart.filter((item) => item != food);
+        const newCart = this.state.cart.filter((item) => item.food_name != food.food_name);
         this.setState({
             cart: newCart,
         });
@@ -45,21 +38,19 @@ class PickFood extends Component {
         });
         this.setState({
             cart: newcart,
-            
         });
         this.total();
     }
 
     addFood(food) {
         const exist = this.state.cart.filter(
-            (item) => item.food.food_name == food.food_name
+            (item) => item.food_name == food.food_name
         );
         if (exist.length > 0) {
             this.adjustItem(exist[0], true);
         } else {
             this.setState({
-                carts: this.state.cart.push({ food: food, num: 1 }),
-                
+                carts: this.state.cart.push(food),
             });
         }
         
@@ -68,12 +59,6 @@ class PickFood extends Component {
         console.log(this.state);
     }
 
-    handleSubmit() {
-        const search = this.state.food_list.filter((food) => {
-            return this.search_item.value;
-        });
-        this.setState({ food_display: search });
-    }
     search(type) {
         this.setState({
             food_display: this.state.food_list.filter(
@@ -89,7 +74,7 @@ class PickFood extends Component {
     total() {
         
         const sum=this.state.cart.reduce(
-            (total, item) => total + item.food.price * item.num,0
+            (total, item) => total + item.price * item.num,0
         );
         this.setState({totalCost:sum});
     }
@@ -153,11 +138,16 @@ class PickFood extends Component {
                     <Card className="cartItemContent">
                         {/* <img width="91.98px" height="90px" src={FaSearch} alt = "Xem hồ sơ bệnh án"/> */}
 
+<<<<<<< HEAD
+                        <img className='menuFoodImg' src="https://i.imgur.com/xZYkts5.jpg" />
+                        <a className="singleCost">{foodItem.price}</a> 
+=======
                         <img className='menuFoodImg2' src="https://i.imgur.com/xZYkts5.jpg" />
                         <a className="singleCost">{foodItem.food.price}</a> 
+>>>>>>> fc4036babcf32b1ca8bce5840dc46e03069013d2
                         <Row className="incartItem">
                             {" "}
-                            {foodItem.food.food_name}
+                            {foodItem.food_name}
                             {/* TODO action button to update cart */}
                             <div className="qty">
                                 {" "}
@@ -177,7 +167,7 @@ class PickFood extends Component {
                                     +
                                 </Button>{" "}
                             </div>
-                            <a className="totalMoney">{foodItem.food.price*foodItem.num}</a>
+                            <a className="totalMoney">{foodItem.price*foodItem.num}</a>
                         </Row>
                         <Row>
                             <Input
@@ -272,7 +262,7 @@ class PickFood extends Component {
                         <CardBody>
                         <CardTitle tag="h5" className="modal-drug-text">{this.state.currentFood.food_name}</CardTitle>
                         <CardSubtitle tag="h6" className="modal-drug-title">{this.state.currentFood.price}</CardSubtitle>
-                            
+                            {/* <Button> Add or remove func adjustItem</Button> */}
                         </CardBody>
                     </Card>
                         <Button onClick={(e) => { this.addFood(this.state.currentFood);  this.toggleModal(); }} className="modal-add-button"> Thêm vào giỏ hàng </Button>
