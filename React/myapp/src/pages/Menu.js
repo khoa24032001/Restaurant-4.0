@@ -2,32 +2,38 @@ import React, { Component } from "react";
 import { Container, Row, Col, CardImg } from "reactstrap";
 import { Card, CardBody, CardTitle, CardSubtitle, CardText } from "reactstrap";
 import { Form, FormGroup, Input, Button } from "reactstrap";
-
+import { Modal, ModalBody } from 'reactstrap';
 import { FoodOrdData } from "./FoodData";
 class PickFood extends Component {
     constructor(props) {
         super(props);
         this.state = FoodOrdData;
+        this.state.isModalOpen=false;
+        this.state.donePay=false;
+        this.togglePay=this.togglePay.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.addItem = this.addItem.bind(this);
         this.adjustItem = this.adjustItem.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
+        this.info=this.info.bind(this);
+        
         //     this.addDrug = this.addDrug.bind(this);
     }
-    notItem(food, item) {
-        return item.food.food_name == food.food_name;
+    info(){
+        console.log(this.state);
     }
     addItem(item) {
         this.setState({
-            cart: this.state.cart.push({ food: item, num: 1 }),
-            totalCost: this.total(),
+            cart: this.state.cart.push({ food: item, num: 1 })
         });
+        this.total();
     }
     rmvItem(food) {
         const newCart = this.state.cart.filter((item) => item != food);
         this.setState({
             cart: newCart,
-            totalCost: this.total(),
         });
+        this.total();
     }
     adjustItem(foodfix, more) {
         const A = foodfix;
@@ -39,8 +45,9 @@ class PickFood extends Component {
         });
         this.setState({
             cart: newcart,
-            totalCost: this.total(),
+            
         });
+        this.total();
     }
 
     addFood(food) {
@@ -52,9 +59,11 @@ class PickFood extends Component {
         } else {
             this.setState({
                 carts: this.state.cart.push({ food: food, num: 1 }),
-                totalCost: this.total(),
+                
             });
         }
+        
+        this.total();
 
         console.log(this.state);
     }
@@ -78,18 +87,32 @@ class PickFood extends Component {
         });
     }
     total() {
-        return this.state.cart.reduce(
+        
+        const sum=this.state.cart.reduce(
             (total, item) => total + item.food.price * item.num,0
         );
+        this.setState({totalCost:sum});
+    }
+    
+    toggleModal() {
+        this.setState({
+          isModalOpen: !this.state.isModalOpen
+        });
+    }
+    togglePay() {
+        this.setState({
+          donePay: !this.state.donePay
+        });
+        this.state.cart=[];
+        this.total();
     }
 
     componentDidMount() {
         this.setState(FoodOrdData);
         this.setState({
             food_display: this.state.food_list,
-            totalCost: this.total(),
         });
-        console.log(this.state);
+        this.total();
     }
 
     render() {
@@ -106,7 +129,7 @@ class PickFood extends Component {
                             </Col>
                         </Row>
                         <Row>
-                            <Button className="infobtn">Xem chi tiết </Button>
+                            <Button className="infobtn" onClick={(e)=>{this.setState({currentFood:food}); this.toggleModal()}}>Xem chi tiết </Button>
                         <Button
                             className="addbtn"
                             onClick={(e) => {
@@ -225,14 +248,41 @@ class PickFood extends Component {
                         Tổng: <h1>{this.state.totalCost}</h1>
                         {/* <Button txt="Thanh toán" path="pay" /> */}
                         <Button
-                            onClick={(e) => {
-                                console.log("đã thanh toán");
+                            onClick={(e) => {this.togglePay();
                             }}
                         >
                             Thanh toán{" "}
                         </Button>
                     </Container>
                 </Col>
+
+                <Modal isOpen={this.state.donePay}toggle={this.togglePay}>
+                    <ModalBody>
+                    <Card className="msg">
+                    Thanh toán thành công!
+                    </Card>
+                    </ModalBody>
+                    </Modal>
+                
+                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                    <ModalBody>
+                    <Card className="modal-drug-item">
+                        <img className="modal-drug-img" width="200px" height="200px" src="add-item.png" alt = "Ảnh thuốc"></img>
+                        <CardBody>
+                        <CardTitle tag="h5" className="modal-drug-text">{this.state.currentFood.food_name}</CardTitle>
+                        <CardSubtitle tag="h6" className="modal-drug-title">{this.state.currentFood.price}</CardSubtitle>
+                            
+                        </CardBody>
+                    </Card>
+                        <Button onClick={(e) => { this.addFood(this.state.currentFood);  this.toggleModal(); }} className="modal-add-button"> Thêm vào giỏ hàng </Button>
+                        <Button className="modal-cancel-button" onClick={(e) => {
+                                this.toggleModal();
+                            }}
+                        >
+                            Hủy{" "}
+                        </Button>
+                    </ModalBody>
+                </Modal>
             </Row>
         );
     }
