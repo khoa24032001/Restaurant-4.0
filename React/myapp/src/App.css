@@ -280,3 +280,115 @@ z-index: 3;
   height:fit-content;
 
 }
+
+
+.drug-item, .modal-drug-item{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 20px;
+}
+.drug-img, .modal-drug-img {
+  margin: auto;
+  margin-top: 5px
+}
+
+.drug-text, .modal-drug-text {
+  font-size: 15px;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.modal-drug-text {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 15px;
+  height: fit-content
+}
+
+
+.drug-title, .modal-drug-title {
+  color: #7C7C7C;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  font-size: 12px;
+}
+
+.modal-drug-title {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.modal-add-button {
+  margin: auto;
+  background-color: #62AFFC;
+  color: white;
+  font-weight: bold;
+  border: 1px white;
+  border-radius: 20px;
+  height: 67px;
+  font-size: 20px;
+  margin-top: 10px;
+  width: 466px;
+}
+.modal-cancel-button {
+  margin: auto;
+  background-color: #fc7462;
+  color: white;
+  font-weight: bold;
+  border: 1px white;
+  border-radius: 20px;
+  height: 67px;
+  font-size: 20px;
+  margin-top: 10px;
+  width: 466px;
+}
+.modal-add-button:hover {
+  background-color: #62AFFC;
+}
+
+.drug-price-add, .modal-drug-price-add {
+  margin-top: 10px;
+}
+
+.drug-price {
+  font-size: 15px;
+  width: 10px;
+  font-weight: bold;
+}
+
+.modal-item-content {
+  margin-top: 10px;
+  position: relative;
+}
+
+.modal-adjust-item, .modal-add-item, .modal-number-item{
+  float: left;
+  width: 17px;
+  text-align: center;
+  font-size: 20px;
+  margin-right: 15px;
+  padding-top: 5px
+}
+
+.modal-number-item {
+  width: 45.67px;
+  height: 45.67px;
+  border: 1px solid;
+  border-radius: 17px;
+}
+
+
+.modal-drug-price {
+  margin-top: 0px;
+  position: absolute;
+  font-size: 25px;
+  font-weight: bold;
+  right: 0px
+}
