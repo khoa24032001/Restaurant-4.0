@@ -248,7 +248,7 @@ class PickFood extends Component {
                         <button class="closeBtn" onClick={this.toggleModal}>X</button>
                     </div>
                 <div class="itemBody">
-                <div>
+                <div className="Picbox">
                 <img class="itemPic" src={this.state.currentFood.img}
                     alt="hamburgerPic"/>
                 </div>
@@ -256,7 +256,7 @@ class PickFood extends Component {
                     <div class="itemPrice">
                         <div className='itemPrice_1'>
                             <h4>Name</h4>
-                            <h5>{this.state.currentFood.food_name}</h5>
+                            <h3>{this.state.currentFood.food_name}</h3>
                         </div>
                         <div className='itemPrice_3'>
                             <h4>Price</h4>
@@ -271,7 +271,9 @@ class PickFood extends Component {
                             <button type="button" class="addMinusBtn" onClick={(e)=>this.adjustItem(this.state.currentFood,true)}>+</button>
                         </div>
                     </div>
-                    <div class="itemNutri">
+                </div>
+                <div className="clear"></div>
+                <div class="itemNutri">
                         <h5>Protein: <span class="itemNutriText">{this.state.currentFood.Protein}</span> </h5>
                         <h5>Additives: <span class="itemNutriText">{this.state.currentFood.Additives}</span> </h5>
                         <h5>Baking material: <span class="itemNutriText">{this.state.currentFood.Material}</span> </h5>
@@ -279,7 +281,6 @@ class PickFood extends Component {
                        
                     </div>
                     <button class="bottomBtn" type="button" onClick={this.addFood, this.toggleModal}>Confirm</button>
-                </div>
             </div>
         </div>
                 </Modal>

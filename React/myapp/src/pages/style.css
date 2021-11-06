@@ -16,7 +16,7 @@ background-color: white;
   min-height: 300px;
   margin: auto;
   margin-top: 10%;
-
+    width: 40%;
     border: 1px black solid;
     border-radius: 10px;
 
@@ -24,7 +24,7 @@ background-color: white;
 .itemHeader {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 95%;
     height: 10%;
     /* border: 1px black solid; */
     padding: 5px;   
