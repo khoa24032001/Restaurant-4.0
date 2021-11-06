@@ -11,7 +11,6 @@ class PickFood extends Component {
         this.state.isModalOpen=false;
         this.state.donePay=false;
         this.togglePay=this.togglePay.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.adjustItem = this.adjustItem.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.info=this.info.bind(this);
@@ -132,23 +131,14 @@ class PickFood extends Component {
             );
         });
         const cart_food_list = this.state.cart.map((foodItem) => {
-            //const price = food.price * 1000;
             return (
                 <Container className="padding10">
                     <Card className="cartItemContent">
-                        {/* <img width="91.98px" height="90px" src={FaSearch} alt = "Xem hồ sơ bệnh án"/> */}
-
-<<<<<<< HEAD
-                        <img className='menuFoodImg' src="https://i.imgur.com/xZYkts5.jpg" />
-                        <a className="singleCost">{foodItem.price}</a> 
-=======
                         <img className='menuFoodImg2' src="https://i.imgur.com/xZYkts5.jpg" />
-                        <a className="singleCost">{foodItem.food.price}</a> 
->>>>>>> fc4036babcf32b1ca8bce5840dc46e03069013d2
+                        <a className="singleCost">{foodItem.price}</a> 
                         <Row className="incartItem">
                             {" "}
                             {foodItem.food_name}
-                            {/* TODO action button to update cart */}
                             <div className="qty">
                                 {" "}
                                 <Button className='subCartItem'
@@ -234,10 +224,10 @@ class PickFood extends Component {
                 </Col>
                 <Col className="cart">
                     {/* <HeaderCart /> */}
+                    <CustomerInfo/>
                     {cart_food_list}
                     <Container>
                         Tổng: <h1>{this.state.totalCost}</h1>
-                        {/* <Button txt="Thanh toán" path="pay" /> */}
                         <Button
                             onClick={(e) => {this.togglePay();
                             }}
@@ -286,15 +276,15 @@ export default PickFood;
 //         return <CustomerInfo props={this.props} />;
 //     }
 // }
-// class CustomerInfo extends Component {
-//     render() {
-//         const { customerName, Role } = this.props;
+class CustomerInfo extends Component {
+    render() {
+        const { customerName, Role } = this.props;
 
-//         return (
-//             <h6>
-//                 <Row> Người dùng: {customerName}</Row>
-//                 <Row> Vai trò: {Role}</Row>
-//             </h6>
-//         );
-//     }
-// }
+        return (
+            <h6>
+                <Row> Người dùng: Nguyễn Trường Hải Đăng </Row>
+                <Row> Vai trò: Khách hàng</Row>
+            </h6>
+        );
+    }
+}
