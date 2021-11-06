@@ -1,6 +1,7 @@
 import './App.css';
 import Sidebar from './components/Sidebar';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { Redirect } from 'react-router';
 import Overview from './pages/Overview';
 import { Reports, ReportsOne, ReportsTwo, ReportsThree } from './pages/Reports';
 import PickFood from './pages/Menu';
@@ -9,7 +10,7 @@ function App() {
   return (
     <Router>
       <Sidebar />
-      <Switch>
+      <Router>
         <Route path='/overview' exact component={Overview} />
         <Route path='/reports' exact component={Reports} />
         <Route path='/reports/reports1' exact component={ReportsOne} />
@@ -18,7 +19,7 @@ function App() {
         <Route path='/menu' exact component={PickFood} />
         
         <Redirect to='/menu' />
-      </Switch>
+      </Router>
     </Router>
   );
 }

@@ -4,6 +4,7 @@ import { Card, CardBody, CardTitle, CardSubtitle, CardText } from "reactstrap";
 import { Form, FormGroup, Input, Button } from "reactstrap";
 import { Modal, ModalBody } from 'reactstrap';
 import { FoodOrdData } from "./FoodData";
+import PopUpFood from "./PopUpFood";
 class PickFood extends Component {
     constructor(props) {
         super(props);
@@ -223,23 +224,7 @@ class PickFood extends Component {
                     </Modal>
                 
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                    <ModalBody>
-                    <Card className="modal-drug-item">
-                        <img className="modal-drug-img" width="200px" height="200px" src="add-item.png" alt = "Ảnh thuốc"></img>
-                        <CardBody>
-                        <CardTitle tag="h5" className="modal-drug-text">{this.state.currentFood.food_name}</CardTitle>
-                        <CardSubtitle tag="h6" className="modal-drug-title">{this.state.currentFood.price}</CardSubtitle>
-                            {/* <Button> Add or remove func adjustItem</Button> */}
-                        </CardBody>
-                    </Card>
-                        <Button onClick={(e) => { this.addFood(this.state.currentFood);  this.toggleModal(); }} className="modal-add-button"> Thêm vào giỏ hàng </Button>
-                        <Button className="modal-cancel-button" onClick={(e) => {
-                                this.toggleModal();
-                            }}
-                        >
-                            Hủy{" "}
-                        </Button>
-                    </ModalBody>
+                    <PopUpFood food={this.state.currentFood}/>
                 </Modal>
             </Row>
         );
