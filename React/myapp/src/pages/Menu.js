@@ -4,7 +4,6 @@ import { Card, CardBody, CardTitle, CardSubtitle, CardText } from "reactstrap";
 import { Form, FormGroup, Input, Button } from "reactstrap";
 import { Modal, ModalBody } from 'reactstrap';
 import { FoodOrdData } from "./FoodData";
-import PopUpFood from "./PopUpFood";
 class PickFood extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +14,8 @@ class PickFood extends Component {
         this.adjustItem = this.adjustItem.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.info=this.info.bind(this);
-        
+        this.adjustFood=this.adjustFood.bind(this);
+        this.addFood=this.addFood.bind(this);
         //     this.addDrug = this.addDrug.bind(this);
     }
     info(){
@@ -32,7 +32,9 @@ class PickFood extends Component {
         const A = foodfix;
         if (more) A.num++;
         else A.num--;
-        const newcart = this.state.cart.map((food) => {
+        if(A.num<1) alert("Bạn đã nhập sai số lượng!")
+        else {
+            const newcart = this.state.cart.map((food) => {
             if (food == foodfix) return A;
             else return food;
         });
@@ -40,9 +42,16 @@ class PickFood extends Component {
             cart: newcart,
         });
         this.total();
+        }
+        
     }
-
-    addFood(food) {
+    adjustFood(event){
+        const newFood=this.state.currentFood;
+        newFood.num=event.target.value;
+        this.setState({currentFood:newFood});
+    }
+    addFood() {
+        const food=this.state.currentFood;
         const exist = this.state.cart.filter(
             (item) => item.food_name == food.food_name
         );
@@ -99,7 +108,7 @@ class PickFood extends Component {
         });
         this.total();
     }
-
+    
     render() {
         const food_list = this.state.food_display.map((food) => {
             return (
@@ -119,7 +128,8 @@ class PickFood extends Component {
                         <Button
                             className="addbtn"
                             onClick={(e) => {
-                                this.addFood(food);
+                                this.setState({currentFood:food});
+                                this.addFood();
                             }}
                         >
                             Thêm vào giỏ hàng
@@ -249,9 +259,9 @@ class PickFood extends Component {
                     <div class="itemQuantity">
                         <div class="itemQuantityText">Quantity</div>
                         <div class="itemQuantityBtn">
-                            <button type="button" class="addMinusBtn">-</button>
-                            <input type="text" class="addMinusText" value="1"/>
-                            <button type="button" class="addMinusBtn">+</button>
+                            <button type="button" class="addMinusBtn" onClick={(e)=>this.adjustItem(this.state.currentFood,false)}>-</button>
+                            <input type="text" class="addMinusText" value={this.state.currentFood.num} name="amount" onChange={this.adjustFood}/>
+                            <button type="button" class="addMinusBtn" onClick={(e)=>this.adjustItem(this.state.currentFood,true)}>+</button>
                         </div>
                     </div>
                     <div class="itemNutri">
@@ -261,7 +271,7 @@ class PickFood extends Component {
                         <h5>Food decoration: <span class="itemNutriText">{this.state.currentFood.decoration}</span> </h5>
                        
                     </div>
-                    <button class="bottomBtn" type="button">Confirm</button>
+                    <button class="bottomBtn" type="button" onClick={this.addFood, this.toggleModal}>Confirm</button>
                 </div>
             </div>
         </div>
