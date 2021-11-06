@@ -224,7 +224,47 @@ class PickFood extends Component {
                     </Modal>
                 
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                    <PopUpFood food={this.state.currentFood}/>
+                {/* this.state.currentFood */}
+                    <div class='itemContainer'>
+                        <div class="itemHeader">
+                        <h2 class='headerName'>ADD TO CART</h2>
+                        <button class="closeBtn" onClick={this.toggleModal}>X</button>
+                    </div>
+                <div class="itemBody">
+                <div>
+                <img class="itemPic" src={this.state.currentFood.img}
+                    alt="hamburgerPic"/>
+                </div>
+                <div class="itemDetail">
+                    <div class="itemPrice">
+                        <div className='itemPrice_1'>
+                            <h4>Name</h4>
+                            <h5>{this.state.currentFood.food_name}</h5>
+                        </div>
+                        <div className='itemPrice_3'>
+                            <h4>Price</h4>
+                            <h3 class="redColor">{this.state.currentFood.price}</h3>
+                        </div>
+                    </div>
+                    <div class="itemQuantity">
+                        <div class="itemQuantityText">Quantity</div>
+                        <div class="itemQuantityBtn">
+                            <button type="button" class="addMinusBtn">-</button>
+                            <input type="text" class="addMinusText" value="1"/>
+                            <button type="button" class="addMinusBtn">+</button>
+                        </div>
+                    </div>
+                    <div class="itemNutri">
+                        <h5>Protein: <span class="itemNutriText">{this.state.currentFood.Protein}</span> </h5>
+                        <h5>Additives: <span class="itemNutriText">{this.state.currentFood.Additives}</span> </h5>
+                        <h5>Baking material: <span class="itemNutriText">{this.state.currentFood.Material}</span> </h5>
+                        <h5>Food decoration: <span class="itemNutriText">{this.state.currentFood.decoration}</span> </h5>
+                       
+                    </div>
+                    <button class="bottomBtn" type="button">Confirm</button>
+                </div>
+            </div>
+        </div>
                 </Modal>
             </Row>
         );
