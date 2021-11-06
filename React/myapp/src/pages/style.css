@@ -8,6 +8,7 @@ body{
     font-family: 'Inter', sans-serif;
 }
 .itemContainer {
+    
     display: flex;
   flex-direction: column;
 background-color: white;

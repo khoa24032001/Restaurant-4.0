@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { FaYenSign } from "react-icons/fa";
 import { Container, Row, Col, CardImg } from "reactstrap";
 import { Card, CardBody, CardTitle, CardSubtitle, CardText } from "reactstrap";
 import { Form, FormGroup, Input, Button } from "reactstrap";
@@ -13,19 +14,17 @@ class PickFood extends Component {
         this.togglePay=this.togglePay.bind(this);
         this.adjustItem = this.adjustItem.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
-        this.info=this.info.bind(this);
         this.adjustFood=this.adjustFood.bind(this);
         this.addFood=this.addFood.bind(this);
+        this.rmvItem=this.rmvItem.bind(this);
+        this.total=this.total.bind(this);
         //     this.addDrug = this.addDrug.bind(this);
     }
-    info(){
-        console.log(this.state);
-    }
     rmvItem(food) {
-        const newCart = this.state.cart.filter((item) => item.food_name != food.food_name);
-        this.setState({
-            cart: newCart,
-        });
+        
+        const newCart = this.state.cart.filter((item) => item.food_name !== food.food_name);
+        this.state.cart=newCart;
+        food.num=1;
         this.total();
     }
     adjustItem(foodfix, more) {
@@ -35,7 +34,7 @@ class PickFood extends Component {
         if(A.num<1) alert("Bạn đã nhập sai số lượng!")
         else {
             const newcart = this.state.cart.map((food) => {
-            if (food == foodfix) return A;
+            if (food===foodfix) return A;
             else return food;
         });
         this.setState({
@@ -43,17 +42,26 @@ class PickFood extends Component {
         });
         this.total();
         }
-        
     }
     adjustFood(event){
-        const newFood=this.state.currentFood;
-        newFood.num=event.target.value;
-        this.setState({currentFood:newFood});
+        const fix=this.state.currentCart
+        const newCart=this.state.cart.map(
+            (item)=>{
+                if (item===fix) {item.num=event.target.value;}
+                return item;
+            }
+        )
+        this.setState({cart:newCart})
+        this.total();
+    //     const editFood=this.state.cart.filter(
+    //         (item)=> if (item.food_name === event
+    //     )
+    //     newFood.num=event.target.value;
+    //     this.setState({currentFood:newFood});
     }
-    addFood() {
-        const food=this.state.currentFood;
+    addFood(food) {;
         const exist = this.state.cart.filter(
-            (item) => item.food_name == food.food_name
+            (item) => item.food_name===food.food_name
         );
         if (exist.length > 0) {
             this.adjustItem(exist[0], true);
@@ -64,14 +72,12 @@ class PickFood extends Component {
         }
         
         this.total();
-
-        console.log(this.state);
     }
 
     search(type) {
         this.setState({
             food_display: this.state.food_list.filter(
-                (food) => food.type == type
+                (food) => food.type===type
             ),
         });
     }
@@ -81,7 +87,6 @@ class PickFood extends Component {
         });
     }
     total() {
-        
         const sum=this.state.cart.reduce(
             (total, item) => total + item.price * item.num,0
         );
@@ -95,10 +100,10 @@ class PickFood extends Component {
     }
     togglePay() {
         this.setState({
-          donePay: !this.state.donePay
+          donePay: !this.state.donePay,
+          cart:[],
+          totalCost:0,
         });
-        this.state.cart=[];
-        this.total();
     }
 
     componentDidMount() {
@@ -108,7 +113,9 @@ class PickFood extends Component {
         });
         this.total();
     }
-    
+    // componentDidUpdate(){
+    //     this.total();
+    // }
     render() {
         const food_list = this.state.food_display.map((food) => {
             return (
@@ -128,8 +135,7 @@ class PickFood extends Component {
                         <Button
                             className="addbtn"
                             onClick={(e) => {
-                                this.setState({currentFood:food});
-                                this.addFood();
+                                this.addFood(food);
                             }}
                         >
                             Thêm vào giỏ hàng
@@ -158,8 +164,9 @@ class PickFood extends Component {
                                     }}
                                 >
                                     -
-                                </Button>{" "}
-                                {foodItem.num}{" "}
+                                </Button>
+                                <input type="text" class="addMinusText" value={foodItem.num} name="amount" onChange={(e)=>{this.setState({currentCart:foodItem});this.adjustFood();}}/>
+                            
                                 <Button className='addCartItem'
                                     onClick={(e) => {
                                         this.adjustItem(foodItem, true);
@@ -217,7 +224,7 @@ class PickFood extends Component {
                     <Container>
                         Tổng: <h1>{this.state.totalCost}</h1>
                         <Button
-                            onClick={(e) => {this.togglePay();
+                            onClick={(e) => {alert("Bạn đã thanh toán thành công!");
                             }}
                         >
                             Thanh toán{" "}
