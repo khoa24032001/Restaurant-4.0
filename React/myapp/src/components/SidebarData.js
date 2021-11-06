@@ -6,7 +6,7 @@ import * as RiIcons from 'react-icons/ri';
 
 export const SidebarData = [
   {
-    title: 'Overview',
+    title: 'Nhà hàng',
     path: '/overview',
     icon: <AiIcons.AiFillHome />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
@@ -14,56 +14,56 @@ export const SidebarData = [
 
     subNav: [
       {
-        title: 'Users',
+        title: 'Chọn món',
         path: '/overview/users',
         icon: <IoIcons.IoIosPaper />
       },
       {
-        title: 'Revenue',
+        title: 'Đặt bàn',
         path: '/overview/revenue',
         icon: <IoIcons.IoIosPaper />
       }
     ]
   },
   {
-    title: 'Reports',
+    title: 'Thanh toán',
     path: '/reports',
-    icon: <IoIcons.IoIosPaper />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
+    icon: <IoIcons.IoIosPaper />
 
-    subNav: [
-      {
-        title: 'Reports',
-        path: '/reports/reports1',
-        icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
-      },
-      {
-        title: 'Reports 2',
-        path: '/reports/reports2',
-        icon: <IoIcons.IoIosPaper />,
-        cName: 'sub-nav'
-      },
-      {
-        title: 'Reports 3',
-        path: '/reports/reports3',
-        icon: <IoIcons.IoIosPaper />
-      }
-    ]
   },
   {
-    title: 'Products',
+    title: 'Đơn hàng',
     path: '/products',
-    icon: <FaIcons.FaCartPlus />
+    icon: <FaIcons.FaCartPlus />,
+    // iconClosed: <RiIcons.RiArrowDownSFill />,
+    // iconOpened: <RiIcons.RiArrowUpSFill />,
+    // subNav: [
+    //   {
+    //     title: 'Reports',
+    //     path: '/reports/reports1',
+    //     icon: <IoIcons.IoIosPaper />,
+    //     cName: 'sub-nav'
+    //   },
+    //   {
+    //     title: 'Reports 2',
+    //     path: '/reports/reports2',
+    //     icon: <IoIcons.IoIosPaper />,
+    //     cName: 'sub-nav'
+    //   },
+    //   {
+    //     title: 'Reports 3',
+    //     path: '/reports/reports3',
+    //     icon: <IoIcons.IoIosPaper />
+    //   }
+    // ]
   },
   {
-    title: 'Team',
+    title: 'Hỗ trợ',
     path: '/team',
     icon: <IoIcons.IoMdPeople />
   },
   {
-    title: 'Messages',
+    title: 'Quản lý',
     path: '/messages',
     icon: <FaIcons.FaEnvelopeOpenText />,
 
@@ -72,19 +72,19 @@ export const SidebarData = [
 
     subNav: [
       {
-        title: 'Message 1',
+        title: 'Nhân sự',
         path: '/messages/message1',
         icon: <IoIcons.IoIosPaper />
       },
       {
-        title: 'Message 2',
+        title: 'Thực đơn',
         path: '/messages/message2',
         icon: <IoIcons.IoIosPaper />
       }
     ]
   },
   {
-    title: 'Support',
+    title: 'Hỗ trợ',
     path: '/support',
     icon: <IoIcons.IoMdHelpCircle />
   }
