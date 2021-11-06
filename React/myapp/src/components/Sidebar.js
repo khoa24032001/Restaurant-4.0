@@ -47,7 +47,8 @@ const Sidebar = () => {
 
   const showSidebar = () =>{setSidebar(!sidebar);
     let x = document.querySelector(".MenuCard")
-    x.classList.toggle('active');
+    if (x !=null)
+        x.classList.toggle('active');
   }
   return (
     <>

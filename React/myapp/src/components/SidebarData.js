@@ -16,7 +16,7 @@ export const SidebarData = [
       {
         title: 'Chọn món',
         path: '/overview/users',
-        icon: <IoIcons.IoIosPaper />
+        icon: <IoIcons.IoIosPaper/>
       },
       {
         title: 'Đặt bàn',

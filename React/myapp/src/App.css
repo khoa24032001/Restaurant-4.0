@@ -22,9 +22,12 @@ Top :145px;
 Left :111px;
 font-size: 24;
 font-family: 'Barlow';
-  /* margin-left: 520px; */
+-webkit-transition: -webkit-transform 1s,opacity 1s,background 1s,width 1s,height 1s,font-size 1s;
 }
-
+.type-button:hover{
+  background-color:#62AFFC;
+  color:white;
+}
 .padding10
 {
   padding: 10px;

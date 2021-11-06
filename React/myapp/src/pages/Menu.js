@@ -183,39 +183,16 @@ class PickFood extends Component {
             <Row className="screen">
                 <Col className="MenuCard">
                     <Row>
-                        <Button
-                            className="type-button"
-                            onClick={(e) => {
-                                this.showAll();
-                            }}
-                        >
-                            {" "}
+                        <Button className="type-button" onClick={(e) => {this.showAll();}}>
                             Tất cả
                         </Button>
-                        <Button
-                            className="type-button"
-                            onClick={(e) => {
-                                this.search("DoAn");
-                            }}
-                        >
+                        <Button className="type-button" onClick={() => {this.search("DoAn");}}>
                             Món ăn
                         </Button>
-                        <Button
-                            className="type-button"
-                            onClick={(e) => {
-                                this.search("Nuoc");
-                            }}
-                        >
-                            {" "}
+                        <Button className="type-button" onClick={() => {this.search("Nuoc");}}>
                             Nước uống
                         </Button>
-                        <Button
-                            className="type-button"
-                            onClick={(e) => {
-                                this.search("Combo");
-                            }}
-                        >
-                            {" "}
+                        <Button className="type-button" onClick={() => {this.search("Combo");}}>
                             Combo
                         </Button>
                     </Row>
