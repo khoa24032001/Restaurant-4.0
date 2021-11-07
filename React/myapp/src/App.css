@@ -184,125 +184,10 @@ family=Lato&display=swap'); */
   line-height: 40px;
   color: white;
  }
- .menuFoodImgBanhNgot {
+ .menuFoodImg {
   width: 80px;
   height: 100px;
   float: left;
-  background-image: url(./image/BanhNgot.jpg);
- }
- .menuFoodImgCaHoiTeriyaki {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/CaHoiTeriyaki.jpg);
- }
- .menuFoodImgHamburger {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/Hamburger.jpg);
- }
- .menuFoodImgBanhDonut {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/Donut.jpg);
- }
- .menuFoodImgGaNuong {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/GaNuong.jpg);
- }
- .menuFoodImgGaRan {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/GaRan.jpg);
- }
- .menuFoodImgKhoaiTayChien {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/KhoaiTayChien.jpg);
- }
- .menuFoodImgMacaron {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/macaron.jpg);
- }
- .menuFoodImgMyY {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/myY.jpg);
- }
- .menuFoodImgNemCongChaPhuong {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/nemCongChaPhuong.jpg);
- }
- .menuFoodImgPanCake {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/pancake.jpg);
- }
- .menuFoodImgPizza {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/pizza.jpg);
- }
- .menuFoodImgCocaCola {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/Coca.jpg);
- }
- .menuFoodImgCappuccino {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/cappuccino.jpg);
- }
- .menuFoodImgCocktailRose {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/coctailRose.jpg);
- }
- .menuFoodImgNuocCam {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/nuocCam.jpg);
- }
- .menuFoodImgSinhTo {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/Sinhto.jpg);
- }
- .menuFoodImgSprite {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/sprite.jpg);
- }
- .menuFoodImgTraiCayDam {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/traiCayDam.jpg);
- }
- .menuFoodImgComboGiangSinh {
-  width: 80px;
-  height: 100px;
-  float: left;
-  background-image: url(./image/comboGiangSinh.jpg);
  }
  .menuFoodImg2 {
   border-radius: 10px;
@@ -406,7 +291,7 @@ family=Lato&display=swap'); */
  }
  .containCard {
   width: 350px;
-  height: fit-content;
+  height: 100%;
   padding: 1%;
   margin-left: 15px;
   float: left;
@@ -425,7 +310,7 @@ family=Lato&display=swap'); */
   background-color: #e5e5e5;
   justify-content: center;
   position: absolute;
-  height: 640px;
+  height: 90%;
   width: 80%;
   z-index: 0;
   left: 0%;
@@ -444,6 +329,8 @@ family=Lato&display=swap'); */
    border: 1px solid #000;
  }
  #searchIcon {
+   height:20px;
+   width:20px;
    top: 8px;
    left: -45px;
    position: relative;
@@ -452,7 +339,7 @@ family=Lato&display=swap'); */
    background-color: #15171c;
  }
  .cart {
-  width: 20%;
+  width: 23%;
   right: 0%;
   position: absolute;
   transition: 350ms;
@@ -460,7 +347,7 @@ family=Lato&display=swap'); */
   box-sizing: border-box;
   background-color: #ffffff;
   border-radius: 15px;
-  height: 640px;
+  height: 90%;
  }
  .foodCartInfo > * {
   display: block;
@@ -668,145 +555,11 @@ margin-left: 600px;
   margin-right: 50px;
   float: left;
 }
-.itemPicBanhNgot {
+.itemPic{
   width: 120px;
   height: 150px;
   border: lightgray 1px solid;
   border-radius: 8px;
-  background-image: url('./image/BanhNgot1.png') ;
-}
-.itemPicCaHoiTeriyaki {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/CaHoiTerayaki1.png') ;
-}
-.itemPicHamburger {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/Hamburger1.png') ;
-}
-.itemPicBanhDonut {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/Donut1.png') ;
-}
-.itemPicGaNuong {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/GaNuong1.png') ;
-}
-.itemPicGaRan {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/GaRan1.png') ;
-}
-.itemPicKhoaiTayChien {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/KhoaiTayChien1.png') ;
-}
-.itemPicMacaron {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/macaron1.png') ;
-}
-.itemPicMyY {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/myY1.png') ;
-}
-.itemPicNemCongChaPhuong {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/nemCongChaPhuong1.png') ;
-}
-.itemPicPanCake {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/pancake1.png') ;
-}
-.itemPicPizza {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/pizza1.png') ;
-}
-.itemPicCocaCola {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/Coca1.png') ;
-}
-.itemPicCappuccino {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/cappuccino1.png') ;
-}
-.itemPicCocktailRose {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/coctailRose1.png') ;
-}
-.itemPicNuocCam {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/nuocCam1.png') ;
-}
-.itemPicSinhTo {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/Sinhto1.png') ;
-}
-.itemPicSprite {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/sprite1.png') ;
-}
-.itemPicTraiCayDam {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/traiCayDam1.png') ;
-}
-.itemPicComboGiangSinh {
-  width: 120px;
-  height: 150px;
-  border: lightgray 1px solid;
-  border-radius: 8px;
-  background-image: url('./image/comboGiangSinh1.png') ;
 }
 
 .clear{
@@ -926,4 +679,24 @@ margin-left: 600px;
   border-radius: 5px;
   padding: 7px;
   margin-top: 15px;
+}
+.scroll-bg-cart{
+  width:100%;
+  margin: 5% auto;
+}
+.scroll-div-cart{
+  width: 100%;
+  height:340px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.scroll-bg-menu{
+  width:100%;
+}
+.scroll-div-menu{
+  width: 100%;
+  height:670px;
+  overflow: hidden;
+  overflow-y: scroll;
 }

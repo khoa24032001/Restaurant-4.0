@@ -6,7 +6,7 @@ import { Form, FormGroup, Input, Button } from "reactstrap";
 import { Modal, ModalBody } from 'reactstrap';
 import { FoodOrdData } from "./FoodData";
 import { Scrollbars } from 'react-custom-scrollbars';
-import searchIcon from '../image/searchIcon.png';
+
 class PickFood extends Component {
     constructor(props) {
         super(props);
@@ -122,13 +122,13 @@ class PickFood extends Component {
     //     this.total();
     // }
     render() {
-        const food_list = this.state.food_display.map((food) => {
+        const food_list = this.state.food_list.map((food) => {
             return (
                 <div className="containCard">
                     <Card className="foodCard">
                         <Row className="foodRow">
                             <Col>
-                            <div className= {'menuFoodImg'+ food.img} />
+                            <img className= 'menuFoodImg' src={food.img} alt="None"/>
                             </Col>
                             <Col>
                             <div className='menuFoodName'> {food.food_name}</div>
@@ -136,7 +136,7 @@ class PickFood extends Component {
                             </Col>
                         </Row>
                         <Row className="foodRow2">
-                            <Button className="infobtn" onClick={(e)=>{this.setState({currentFood:food}); this.toggleModal()}}>Xem chi tiết </Button>
+                            <Button className="infobtn" onClick={()=>{this.setState({currentFood:food}); this.toggleModal()}}>Xem chi tiết </Button>
                         <Button
                             className="addbtn"
                             onClick={(e) => {
@@ -160,7 +160,7 @@ class PickFood extends Component {
                             {" "}
                             <img
                                 className="menuFoodImg2"
-                                src="https://minhcaumart.vn/media/com_eshop/products/sprite-lon-cao-330ml-MCM.jpg"
+                                src={foodItem.img}
                             />
                             <div className="foodCartInfo">
                                 <span>{foodItem.food_name}</span>
@@ -235,18 +235,33 @@ remove
                             Combo
                         </Button>
                         <input style = {{ height: 46, width: 400}} type="text" name="searchFood" id="searchBar" placeholder="Tìm kiếm" />
-                        <img id="searchIcon" src= {searchIcon} alt="SearchIcon" />
+                        <img id="searchIcon" src= "image\OIP.jpg" alt="SearchIcon" />
                     </Row>
-                    <Scrollbars style={{ height: 550 }}>
+                    {/* <Scrollbars style={{height:640}}>
                         <Row>
                             {food_list}
                         </Row>
-                    </Scrollbars>
+                    </Scrollbars> */}
+                                        <div class="scroll-bg-menu">
+                        <div class="scroll-div-menu">
+                            <div class="scroll-object-menu">
+                        
+                            {food_list}
+                    </div>
+                    </div>
+                    </div>
                 </Col>
                 <Col className="cart">
                     {/* <HeaderCart /> */}
                     {/* <CustomerInfo/> */}
+                    <div class="scroll-bg-cart">
+                        <div class="scroll-div-cart">
+                            <div class="scroll-object-cart">
+                        
                     {cart_food_list}
+                    </div>
+                    </div>
+                    </div>
                     <Container>
                         Tổng: <h1>{this.state.totalCost}</h1>
                         <Button
@@ -267,7 +282,7 @@ remove
                     </div>
                 <div class="itemBody">
                 <div className="Picbox">
-                <div class={"itemPic" + this.state.currentFood.img}/>
+                <img class={"itemPic"} src={this.state.currentFood.img}/>
                 </div>
                 <div class="itemDetail">
                     <div class="itemPrice">
