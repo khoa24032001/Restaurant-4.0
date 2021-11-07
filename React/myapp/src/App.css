@@ -625,6 +625,8 @@ margin-left: 600px;
   width: 30px;
   text-align: center;
   border: none;
+  background-color: #ffffff00
+  ;
 }
 .itemNutri {
   display: flex;
