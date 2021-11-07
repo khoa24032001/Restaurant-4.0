@@ -58,7 +58,6 @@ const Sidebar = () => {
             <FaIcons.FaBars onClick={showSidebar} />
           </NavIcon>
           <h1 font-color='#000'>Chọn món</h1>
-          <Input type="text"  className="align-right"/>
         </Nav>
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
