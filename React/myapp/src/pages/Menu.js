@@ -5,6 +5,7 @@ import { Card, CardBody, CardTitle, CardSubtitle, CardText } from "reactstrap";
 import { Form, FormGroup, Input, Button } from "reactstrap";
 import { Modal, ModalBody } from 'reactstrap';
 import { FoodOrdData } from "./FoodData";
+import { Scrollbars } from 'react-custom-scrollbars';
 class PickFood extends Component {
     constructor(props) {
         super(props);
@@ -126,7 +127,7 @@ class PickFood extends Component {
                     <Card className="foodCard">
                         <Row className="foodRow">
                             <Col>
-                            <img className='menuFoodImg' src="https://i.imgur.com/xZYkts5.jpg" />
+                            <div className= {'menuFoodImg'+ food.img} />
                             </Col>
                             <Col>
                             <div className='menuFoodName'> {food.food_name}</div>
@@ -157,8 +158,10 @@ class PickFood extends Component {
                         <img className='menuFoodImg2' src="https://i.imgur.com/xZYkts5.jpg" />
                         <a className="singleCost">{foodItem.price}</a> 
                         <Row className="incartItem">
+                            {" "}
                             {foodItem.food_name}
                             <div className="qty">
+                                {" "}
                                 <Button className='subCartItem'
                                     onClick={(e) => {
                                         this.adjustItem(foodItem, false);
@@ -166,10 +169,10 @@ class PickFood extends Component {
                                 >
                                     -
                                 </Button>
-                                <input type="text" class="addMinusText" value={foodItem.num} name="amount" onChange={()=>{this.setState({currentCart:foodItem});this.adjustFood();}}/>
+                                <input type="text" class="addMinusText" value={foodItem.num} name="amount" onChange={(e)=>{this.setState({currentCart:foodItem});this.adjustFood();}}/>
                             
                                 <Button className='addCartItem'
-                                    onClick={() => {
+                                    onClick={(e) => {
                                         this.adjustItem(foodItem, true);
                                     }}
                                 >
@@ -215,20 +218,16 @@ class PickFood extends Component {
                             Combo
                         </Button>
                     </Row>
-                    
-                    <Row>{food_list}</Row>
+                    <Scrollbars style={{ height: 550 }}>
+                        <Row>
+                            {food_list}
+                        </Row>
+                    </Scrollbars>
                 </Col>
                 <Col className="cart">
                     {/* <HeaderCart /> */}
-                    <CustomerInfo/>
-                    <div class="scroll-bg-cart">
-                        <div class="scroll-div-cart">
-                            <div class="scroll-object-cart">
-                        
+                    {/* <CustomerInfo/> */}
                     {cart_food_list}
-                    </div>
-                    </div>
-                    </div>
                     <Container>
                         Tổng: <h1>{this.state.totalCost}</h1>
                         <Button
@@ -240,9 +239,8 @@ class PickFood extends Component {
                         </Button>
                     </Container>
                 </Col>
-                            
+
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                {/* this.state.currentFood */}
                     <div class='itemContainer'>
                         <div class="itemHeader">
                         <h2 class='headerName'>Thêm vào giỏ hàng</h2>
@@ -250,8 +248,7 @@ class PickFood extends Component {
                     </div>
                 <div class="itemBody">
                 <div className="Picbox">
-                <img class="itemPic" src={this.state.currentFood.img}
-                    alt="hamburgerPic"/>
+                <div class={"itemPic" + this.state.currentFood.img}/>
                 </div>
                 <div class="itemDetail">
                     <div class="itemPrice">
@@ -281,9 +278,9 @@ class PickFood extends Component {
                         <h5>Food decoration: <span class="itemNutriText">{this.state.currentFood.decoration}</span> </h5>
                        
                     </div>
-                    <button class="bottomBtn" type="button" onClick={this.addFood, this.toggleModal}>Confirm</button>
+                    <button class="bottomBtn" type="button" onClick={()=>{this.addcurrFood(); this.toggleModal()}}>Xác nhận</button>
+                </div>
             </div>
-        </div>
                 </Modal>
             </Row>
         );
@@ -297,15 +294,15 @@ export default PickFood;
 //         return <CustomerInfo props={this.props} />;
 //     }
 // }
-class CustomerInfo extends Component {
-    render() {
-        const { customerName, Role } = this.props;
+// class CustomerInfo extends Component {
+//     render() {
+//         const { customerName, Role } = this.props;
 
-        return (
-            <h6>
-                <Row> Người dùng: Nguyễn Trường Hải Đăng </Row>
-                <Row> Vai trò: Khách hàng</Row>
-            </h6>
-        );
-    }
-}
+//         return (
+//             <h6>
+//                 <Row> Người dùng: Nguyễn Trường Hải Đăng </Row>
+//                 <Row> Vai trò: Khách hàng</Row>
+//             </h6>
+//         );
+//     }
+// }
