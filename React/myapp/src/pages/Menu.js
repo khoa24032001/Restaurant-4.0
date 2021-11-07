@@ -174,7 +174,9 @@ class PickFood extends Component {
                                         this.adjustItem(foodItem, false);
                                     }}
                                 >
-                                    -
+                                    <span class="material-icons-outlined">
+remove
+</span>
                                 </Button>
                                 <input type="text" class="addMinusText" value={foodItem.num} name="amount" onChange={(e)=>{this.setState({currentCart:foodItem});this.adjustFood();}}/>
                             
