@@ -452,7 +452,7 @@ family=Lato&display=swap'); */
    background-color: #15171c;
  }
  .cart {
-  width: 20%;
+  width: 30%;
   right: 0%;
   position: absolute;
   transition: 350ms;
@@ -872,6 +872,8 @@ margin-left: 600px;
   width: 30px;
   text-align: center;
   border: none;
+  background-color: #ffffff00
+  ;
 }
 .itemNutri {
   display: flex;
