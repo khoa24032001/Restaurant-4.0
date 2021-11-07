@@ -10,12 +10,12 @@ class PickFood extends Component {
         super(props);
         this.state = FoodOrdData;
         this.state.isModalOpen=false;
-        this.state.donePay=false;
         this.togglePay=this.togglePay.bind(this);
         this.adjustItem = this.adjustItem.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.adjustFood=this.adjustFood.bind(this);
         this.addFood=this.addFood.bind(this);
+        this.addcurrFood=this.addcurrFood.bind(this);
         this.rmvItem=this.rmvItem.bind(this);
         this.total=this.total.bind(this);
         //     this.addDrug = this.addDrug.bind(this);
@@ -59,7 +59,10 @@ class PickFood extends Component {
     //     newFood.num=event.target.value;
     //     this.setState({currentFood:newFood});
     }
-    addFood(food) {;
+    addcurrFood(){
+        this.addFood(this.state.currentFood)
+    }
+    addFood(food) {
         const exist = this.state.cart.filter(
             (item) => item.food_name===food.food_name
         );
@@ -100,7 +103,7 @@ class PickFood extends Component {
     }
     togglePay() {
         this.setState({
-          donePay: !this.state.donePay,
+        //   donePay: !this.state.donePay,
           cart:[],
           totalCost:0,
         });
@@ -225,6 +228,7 @@ class PickFood extends Component {
                         Tổng: <h1>{this.state.totalCost}</h1>
                         <Button
                             onClick={(e) => {alert("Bạn đã thanh toán thành công!");
+                            this.togglePay();
                             }}
                         >
                             Thanh toán{" "}
@@ -232,19 +236,11 @@ class PickFood extends Component {
                     </Container>
                 </Col>
 
-                <Modal isOpen={this.state.donePay}toggle={this.togglePay}>
-                    <ModalBody>
-                    <Card className="msg">
-                    Thanh toán thành công!
-                    </Card>
-                    </ModalBody>
-                    </Modal>
-                
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                 {/* this.state.currentFood */}
                     <div class='itemContainer'>
                         <div class="itemHeader">
-                        <h2 class='headerName'>ADD TO CART</h2>
+                        <h2 class='headerName'>Thêm vào giỏ hàng</h2>
                         <button class="closeBtn" onClick={this.toggleModal}>X</button>
                     </div>
                 <div class="itemBody">
@@ -280,7 +276,12 @@ class PickFood extends Component {
                         <h5>Food decoration: <span class="itemNutriText">{this.state.currentFood.decoration}</span> </h5>
                        
                     </div>
+<<<<<<< HEAD
                     <button class="bottomBtn" type="button" onClick={this.addFood, this.toggleModal}>Confirm</button>
+=======
+                    <button class="bottomBtn" type="button" onClick={(e)=>{this.addcurrFood(); this.toggleModal()}}>Xác nhận</button>
+                </div>
+>>>>>>> 36d3dd998692f95986c74c51b76a1c9e7cb37552
             </div>
         </div>
                 </Modal>
