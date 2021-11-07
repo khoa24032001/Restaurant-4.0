@@ -156,14 +156,20 @@ class PickFood extends Component {
             return (
                 <Container className="padding10">
                     <Card className="cartItemContent">
-                        <img className='menuFoodImg2' src="https://i.imgur.com/xZYkts5.jpg" />
-                        <a className="singleCost">{foodItem.price}</a> 
                         <Row className="incartItem">
                             {" "}
-                            {foodItem.food_name}
+                            <img
+                                className="menuFoodImg2"
+                                src="https://minhcaumart.vn/media/com_eshop/products/sprite-lon-cao-330ml-MCM.jpg"
+                            />
+                            <div className="foodCartInfo">
+                                <span>{foodItem.food_name}</span>
+                                <a className="singleCost">${foodItem.price}</a>
+                            </div>
                             <div className="qty">
                                 {" "}
-                                <Button className='subCartItem'
+                                <Button
+                                    className="subCartItem"
                                     onClick={(e) => {
                                         this.adjustItem(foodItem, false);
                                     }}
@@ -177,10 +183,16 @@ class PickFood extends Component {
                                         this.adjustItem(foodItem, true);
                                     }}
                                 >
-                                    +
+                                    <span class="material-icons-outlined">
+                                        add
+                                    </span>
                                 </Button>{" "}
                             </div>
-                            <a className="totalMoney">{foodItem.price*foodItem.num}</a>
+                            <div className="totalFoodPrice">
+                                <a className="totalMoney">
+                                    ${foodItem.price * foodItem.num}
+                                </a>
+                            </div>
                         </Row>
                         <Row>
                             <Input
@@ -194,7 +206,9 @@ class PickFood extends Component {
                                     this.rmvItem(foodItem);
                                 }}
                             >
-                                Del
+                                <span class="material-icons-outlined">
+                                    clear
+                                </span>
                             </Button>
                         </Row>
                     </Card>
