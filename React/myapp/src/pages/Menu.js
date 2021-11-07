@@ -201,6 +201,7 @@ remove
                                 className="note"
                                 name="note"
                                 type="text"
+                                placeholder="OrderNote"
                             ></Input>
                             <Button
                                 className="del"
@@ -264,13 +265,11 @@ remove
                     </div>
                     <Container>
                         Tổng: <h1>{this.state.totalCost}</h1>
-                        <Button
-                            onClick={(e) => {alert("Bạn đã thanh toán thành công!");
+                        <div class="btn2" onClick={(e) => {alert("Bạn đã thanh toán thành công!");
                             this.togglePay();
-                            }}
-                        >
-                            Thanh toán{" "}
-                        </Button>
+                            }}>
+                            Thanh toán
+                        </div>
                     </Container>
                 </Col>
 

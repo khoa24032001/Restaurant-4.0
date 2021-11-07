@@ -702,3 +702,15 @@ margin-left: 600px;
   overflow: hidden;
   overflow-y: scroll;
 }
+
+.btn2 {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .9rem 10%;
+  background: #eb4d4b;
+  color: #fff;
+  font-size: 1.7rem;
+  cursor: pointer;
+  width:80%;
+  text-align: center;
+}
