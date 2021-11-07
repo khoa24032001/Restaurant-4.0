@@ -157,10 +157,8 @@ class PickFood extends Component {
                         <img className='menuFoodImg2' src="https://i.imgur.com/xZYkts5.jpg" />
                         <a className="singleCost">{foodItem.price}</a> 
                         <Row className="incartItem">
-                            {" "}
                             {foodItem.food_name}
                             <div className="qty">
-                                {" "}
                                 <Button className='subCartItem'
                                     onClick={(e) => {
                                         this.adjustItem(foodItem, false);
@@ -168,10 +166,10 @@ class PickFood extends Component {
                                 >
                                     -
                                 </Button>
-                                <input type="text" class="addMinusText" value={foodItem.num} name="amount" onChange={(e)=>{this.setState({currentCart:foodItem});this.adjustFood();}}/>
+                                <input type="text" class="addMinusText" value={foodItem.num} name="amount" onChange={()=>{this.setState({currentCart:foodItem});this.adjustFood();}}/>
                             
                                 <Button className='addCartItem'
-                                    onClick={(e) => {
+                                    onClick={() => {
                                         this.adjustItem(foodItem, true);
                                     }}
                                 >
@@ -223,7 +221,14 @@ class PickFood extends Component {
                 <Col className="cart">
                     {/* <HeaderCart /> */}
                     <CustomerInfo/>
+                    <div class="scroll-bg-cart">
+                        <div class="scroll-div-cart">
+                            <div class="scroll-object-cart">
+                        
                     {cart_food_list}
+                    </div>
+                    </div>
+                    </div>
                     <Container>
                         Tổng: <h1>{this.state.totalCost}</h1>
                         <Button
@@ -235,7 +240,7 @@ class PickFood extends Component {
                         </Button>
                     </Container>
                 </Col>
-
+                            
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                 {/* this.state.currentFood */}
                     <div class='itemContainer'>
