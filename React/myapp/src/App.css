@@ -436,6 +436,21 @@ family=Lato&display=swap'); */
   width: 67%;
   left: 14.5%;
  }
+ #searchBar {
+   margin-left: 100px;
+   padding: 1px;
+   padding-left: 5px;
+   border-radius: 55px;
+   border: 1px solid #000;
+ }
+ #searchIcon {
+   top: 8px;
+   left: -45px;
+   position: relative;
+ }
+ #titleFeature {
+   background-color: #15171c;
+ }
  .cart {
   width: 20%;
   right: 0%;

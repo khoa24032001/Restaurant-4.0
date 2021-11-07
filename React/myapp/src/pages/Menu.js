@@ -6,6 +6,7 @@ import { Form, FormGroup, Input, Button } from "reactstrap";
 import { Modal, ModalBody } from 'reactstrap';
 import { FoodOrdData } from "./FoodData";
 import { Scrollbars } from 'react-custom-scrollbars';
+import searchIcon from '../image/searchIcon.png';
 class PickFood extends Component {
     constructor(props) {
         super(props);
@@ -217,6 +218,8 @@ class PickFood extends Component {
                         <Button className="type-button" onClick={() => {this.search("Combo");}}>
                             Combo
                         </Button>
+                        <input style = {{ height: 46, width: 400}} type="text" name="searchFood" id="searchBar" placeholder="Tìm kiếm" />
+                        <img id="searchIcon" src= {searchIcon} alt="SearchIcon" />
                     </Row>
                     <Scrollbars style={{ height: 550 }}>
                         <Row>

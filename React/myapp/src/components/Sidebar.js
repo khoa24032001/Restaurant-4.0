@@ -57,7 +57,7 @@ const Sidebar = () => {
           <NavIcon to='#'>
             <FaIcons.FaBars onClick={showSidebar} />
           </NavIcon>
-          <h1 font-color='#000'>Chọn món</h1>
+          <h1 font-color='#000' id = "titleFeature">Chọn món</h1>
         </Nav>
         <SidebarNav sidebar={sidebar}>
           <SidebarWrap>
