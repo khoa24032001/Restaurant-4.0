@@ -222,7 +222,7 @@ class PickFood extends Component {
                 </Col>
                 <Col className="cart">
                     {/* <HeaderCart /> */}
-                    <CustomerInfo/>
+                    {/* <CustomerInfo/> */}
                     {cart_food_list}
                     <Container>
                         Tổng: <h1>{this.state.totalCost}</h1>
@@ -237,7 +237,6 @@ class PickFood extends Component {
                 </Col>
 
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                {/* this.state.currentFood */}
                     <div class='itemContainer'>
                         <div class="itemHeader">
                         <h2 class='headerName'>Thêm vào giỏ hàng</h2>
@@ -276,14 +275,9 @@ class PickFood extends Component {
                         <h5>Food decoration: <span class="itemNutriText">{this.state.currentFood.decoration}</span> </h5>
                        
                     </div>
-<<<<<<< HEAD
-                    <button class="bottomBtn" type="button" onClick={this.addFood, this.toggleModal}>Confirm</button>
-=======
-                    <button class="bottomBtn" type="button" onClick={(e)=>{this.addcurrFood(); this.toggleModal()}}>Xác nhận</button>
+                    <button class="bottomBtn" type="button" onClick={()=>{this.addcurrFood(); this.toggleModal()}}>Xác nhận</button>
                 </div>
->>>>>>> 36d3dd998692f95986c74c51b76a1c9e7cb37552
             </div>
-        </div>
                 </Modal>
             </Row>
         );
@@ -297,15 +291,15 @@ export default PickFood;
 //         return <CustomerInfo props={this.props} />;
 //     }
 // }
-class CustomerInfo extends Component {
-    render() {
-        const { customerName, Role } = this.props;
+// class CustomerInfo extends Component {
+//     render() {
+//         const { customerName, Role } = this.props;
 
-        return (
-            <h6>
-                <Row> Người dùng: Nguyễn Trường Hải Đăng </Row>
-                <Row> Vai trò: Khách hàng</Row>
-            </h6>
-        );
-    }
-}
+//         return (
+//             <h6>
+//                 <Row> Người dùng: Nguyễn Trường Hải Đăng </Row>
+//                 <Row> Vai trò: Khách hàng</Row>
+//             </h6>
+//         );
+//     }
+// }
